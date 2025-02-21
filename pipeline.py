@@ -239,18 +239,22 @@ class PixelPonder:
         else:
             self.dtype = torch.bfloat16
         self.controlnet = load_controlnet(name="flux-dev", device=device)
+        self.controlnet = self.controlnet.to(dtype=self.dtype, device=device)
         self.controlnet.load_state_dict(torch.load(controlnet_ckpt_path))
         self.controlnet.requires_grad_(False)
 
         self.t5 = load_t5(device, max_length=256 if is_schnell else 512, version=t5_ckpt_path if t5_ckpt_path is not None else None)
+        self.t5 = self.t5.to(device=device)
         self.t5.requires_grad_(False)
         offload_model_to_cpu(self.t5, offload=offload)
 
         self.clip = load_clip(device, version=clip_ckpt_path if clip_ckpt_path is not None else None)
+        self.clip = self.clip.to(device=device)
         self.clip.requires_grad_(False)
 
         self.ae = load_ae("flux-dev", device="cpu" if offload else device,
                           ckpt_path=ae_ckpt_path if ae_ckpt_path is not None else None)
+        self.ae = self.ae.to(device=device)
         self.ae.requires_grad_(False)
         offload_model_to_cpu(self.controlnet, self.dit, offload=offload)
 

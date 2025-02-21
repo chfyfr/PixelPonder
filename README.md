@@ -60,8 +60,7 @@ pip install -r requirements.txt
 # Inference
 We provide two types of inference scripts, including single-GPU inference and multi-GPU parallel inference.
 1. single-GPU inference:  
-In the case of offloading, we recommend a GPU memory capacity of 32GB. If offloading is not used, we recommend a GPU 
-memory capacity of 60GB.You can try using the Schnell version of Flux to further reduce memory requirements.
+In the case of offloading, we recommend a GPU memory capacity of 32GB. 
 ```bash
 python inference.py
 ```
@@ -73,6 +72,8 @@ The data storage format can refer to the format in the **Training Dataset or Inf
 python batch_inference.py --canny --depth --hed --openpose --batch 8 --gpu 4 --datapath "path/to/your/data" --savepath "path/to/your/save/path"
 ```
 
+# Weights
+pass
 
 # Training Dataset or Inference Dataset
 Dataset has the following format for the training process:

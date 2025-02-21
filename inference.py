@@ -24,9 +24,9 @@ def main():
     image1.save('./example1.jpg')
 
     # example2
-    example_2_text = 'Set against a rustic wooden table beside a French window, \
-                      with raindrops tapping on the glass, this item presents a \
-                      contrast with the muted tones of a rainy morning outside.'
+    example_2_text = 'Set against the backdrop of a quaint, sun-drenched garden during a spring morning,\
+                      it stands elegantly on a flower-strewn table, surrounded by fluttering butterflies \
+                      and bees, each beam of sunlight highlighting its fanciful wings.'
     conditions_2 = {'canny': Image.open('./examples/example2/canny.png'),
                     'hed': Image.open('./examples/example2/hed.png'),
                     'depth': Image.open('./examples/example2/depth.png'),

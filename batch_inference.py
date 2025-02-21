@@ -286,7 +286,7 @@ def inf(bs: int, is_schnell: bool, device: str, offload: bool, seed: int, num_st
     controlnet.requires_grad_(False)
     controlnet.load_state_dict(
         torch.load(
-            f'{ckpt_path}/pixelponder-bf16.bin'))
+            f'{ckpt_path}/pixelponder-fp32.bin'))
 
     t5 = load_t5(device, max_length=256 if is_schnell else 512,
                  version=f"{ckpt_path}/xflux_text_encoders")  # torch.bfloat16
@@ -304,11 +304,8 @@ def inf(bs: int, is_schnell: bool, device: str, offload: bool, seed: int, num_st
 
     for step, batch in enumerate(dataloader):
         img, prompt, hints, img_names = batch
-        if not os.path.exists(f'{ckpt_path}/{out_dir}'):
-            os.makedirs(f'{ckpt_path}/{out_dir}')
-        #         if os.path.exists(f'{base_path}/{out_dir}/{img_names[0]}'):
-        #             print('skip')
-        #             continue
+        if not os.path.exists(f'{out_dir}'):
+            os.makedirs(f'{out_dir}')
         cond = {}
         for k, c in hints.items():
             if len(selected_hints) > 0:
@@ -404,7 +401,7 @@ def inf(bs: int, is_schnell: bool, device: str, offload: bool, seed: int, num_st
         image_list = [Image.fromarray((127.5 * (x1 + 1.0)).cpu().byte().numpy()) for x1 in x_list]
 
         for image, img_name in zip(image_list, img_names):
-            image.save(f'{ckpt_path}/{out_dir}/{img_name}')
+            image.save(f'{out_dir}/{img_name}')
             print(f'success save {out_dir}/{img_name}')
 
 
