@@ -1,0 +1,28 @@
+model_name: "flux-dev"
+data_config:
+  train_batch_size: 2
+  num_workers: 4
+  img_size: 512
+  json_path: 'path/to/jsonl'
+  hint_types: ['canny', 'depth', 'openpose', 'hed']
+report_to: wandb
+select_num: 3
+train_batch_size: 4
+output_dir: path/to/ckpt save path
+max_train_steps: 2520000000
+learning_rate: 2e-5
+lr_scheduler: constant
+lr_warmup_steps: 10
+adam_beta1: 0.9
+adam_beta2: 0.999
+adam_weight_decay: 0.01
+adam_epsilon: 1e-8
+max_grad_norm: 1.0
+logging_dir: logs
+mixed_precision: "bf16"
+checkpointing_steps: 4000000000
+checkpoints_total_limit: 1000
+tracker_project_name: canny_training
+resume_from_checkpoint: latest
+gradient_accumulation_steps: 1
+num_train_epochs: 10
