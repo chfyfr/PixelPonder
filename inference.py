@@ -1,7 +1,5 @@
 from pipeline import PixelPonder
 from PIL import Image
-import matplotlib.pyplot as plt
-import numpy as np
 
 def main():
     controlnet_ckpt_path = "./ckpts/pixelponder-fp32.bin"
@@ -17,19 +15,18 @@ def main():
                               ae_ckpt_path=ae_ckpt_path,
                               offload=True)
     # example1
-    example_1_text = 'watercolor kitten'
+    example_1_text = '8_red_fox_snow_portrait'
     conditions_1 = {'canny': Image.open('./examples/example1/canny.png'),
                     'hed': Image.open('./examples/example1/hed.png'),
-                    'depth': Image.open('./examples/example1/depth.png')}
+                    'depth': Image.open('./examples/example1/depth.png'),
+                    'openpose': Image.open('./examples/example1/pose.png')}
     image1 = pixelponder(text=example_1_text, conditions=conditions_1)
     image1.save('./example1.jpg')
 
-    plt.imshow(np.array(image1))
-    plt.axis('off')
-    plt.show()
-
     # example2
-    example_2_text = 'grosse moustache acteur fracais photo exempl styles moustaches barbe hipster'
+    example_2_text = 'Set against a rustic wooden table beside a French window, \
+                      with raindrops tapping on the glass, this item presents a \
+                      contrast with the muted tones of a rainy morning outside.'
     conditions_2 = {'canny': Image.open('./examples/example2/canny.png'),
                     'hed': Image.open('./examples/example2/hed.png'),
                     'depth': Image.open('./examples/example2/depth.png'),
@@ -37,10 +34,6 @@ def main():
 
     image2 = pixelponder(text=example_2_text, conditions=conditions_2)
     image2.save('./example2.jpg')
-
-    plt.imshow(np.array(image2))
-    plt.axis('off')
-    plt.show()
 
 if __name__ == '__main__':
     main()
