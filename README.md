@@ -47,12 +47,12 @@ conda create -n pixelponder python=3.10 -y
 conda activate pixelponder
 ```
 
-3. Choose the appropriate version of PyTorch based on your CUDA version.: 
+3. Choose the appropriate version of PyTorch: 
 ```bash
 pip install torch==2.2.0 torchvision==0.17.0 torchaudio==2.2.0 --index-url https://download.pytorch.org/whl/cu118 
 ```
 
-4. Install our dependencies by running the following command based on your CUDA version.:
+4. Install our dependencies by running the following command:
 ```bash
 pip install -r requirements.txt
 ```
