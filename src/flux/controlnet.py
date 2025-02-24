@@ -143,7 +143,6 @@ class ControlNetFlux(nn.Module):
         ids = torch.cat((txt_ids, img_ids), dim=1)
         pe = self.pe_embedder(ids)
 
-        # running on sequences img
         vec = self.time_in(timestep_embedding(timesteps, 256)) # [1,3072]
         if self.params.guidance_embed:
             if guidance is None:

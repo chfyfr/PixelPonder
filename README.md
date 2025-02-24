@@ -31,6 +31,7 @@ previous methods across different benchmark datasets, showing superior improveme
 </div>
 
 # News
+- **`2025/2/20`**: Model can be accessed.
 - **`2025/2/20`**: Inference code is released.
 - **`2025/2/20`**: Our [**PixelPonder paper**](https://arxiv.org/) is available.
 
@@ -72,8 +73,9 @@ The data storage format can refer to the format in the **Training Dataset or Inf
 python batch_inference.py --canny --depth --hed --openpose --batch 8 --gpu 4 --datapath "path/to/your/data" --savepath "path/to/your/save/path"
 ```
 
-# Weights
-pass
+# Models
+You can download them on HuggingFace:
+- [pixelponder](https://huggingface.co/chfyfr/PixelPonder)
 
 # Training Dataset or Inference Dataset
 Dataset has the following format for the training process:
@@ -107,5 +109,8 @@ The format of JSONL is as follows:
 {"image": "path/to/your/data/images/image_001.png", "text": "text2", "canny": "path/to/your/data/canny/image_001.png", "depth": "path/to/your/data/depth/image_001.png", "openpose": "path/to/your/data/openpose/image_001.png", "hed": "path/to/your/data/hed/image_001.png"}
 ```
 In inference, the data/images are not needed.
+
+## Models Licence
+Our models fall under the [FLUX.1 [dev]](https://github.com/black-forest-labs/flux/blob/main/model_licenses/LICENSE-FLUX1-dev) and the [x-flux](https://github.com/XLabs-AI/x-flux) license.  
 
 

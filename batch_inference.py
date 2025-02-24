@@ -286,7 +286,9 @@ def inf(bs: int, is_schnell: bool, device: str, offload: bool, seed: int, num_st
     controlnet.requires_grad_(False)
     controlnet.load_state_dict(
         torch.load(
-            f'{ckpt_path}/pixelponder-fp32.bin'))
+            f'{ckpt_path}/pixelponder-fp32.bin'
+        )
+    )
 
     t5 = load_t5(device, max_length=256 if is_schnell else 512,
                  version=f"{ckpt_path}/xflux_text_encoders")  # torch.bfloat16
