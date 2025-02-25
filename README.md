@@ -1,6 +1,5 @@
 
-# PixelPonder
-PixelPonder: Dynamic Patch Adaptation for Enhanced Multi-Conditional
+# <img src="./doc/asset/logo.png" width="25" height="25"> PixelPonder:Dynamic Patch Adaptation for Enhanced Multi-Conditional
 Text-to-Image Generation
 
 
@@ -23,20 +22,18 @@ Text-to-Image Generation
 
 [//]: # (</a>)
 
-# Abstract
-Recent advances in diffusion-based text-to-image generation have demonstrated promising results through visual condition control. However, existing ControlNet-like methods struggle with compositional visual conditioning - simultaneously preserving semantic fidelity across multiple heterogeneous control signals while maintaining high visual quality, where they employ separate control branches that often introduce conflicting guidance during the denoising process, leading to structural distortions and artifacts in generated images. To address this issue, we present PixelPonder, a novel unified control framework, which allows for effective control of multiple visual conditions under a single control structure. Specifically, we design a patch-level adaptive condition selection mechanism that dynamically prioritizes spatially relevant control signals at the sub-region level, enabling precise local guidance without global interference. Additionally, a time-aware control injection scheme is deployed to modulate condition influence according to denoising timesteps, progressively transitioning from structural preservation to texture refinement and fully utilizing the control information from different categories to promote more harmonious image generation. Extensive experiments demonstrate that PixelPonder surpasses
-previous methods across different benchmark datasets, showing superior improvement in spatial alignment accuracy while maintaining high textual semantic consistency. Qualitative evaluations confirm our method's ability to synthesize photorealistic images that faithfully adhere to complex multi-condition inputs, significantly outperforming existing compositional control approaches.
+# 🧐Overview
 <div style="text-align: center;">
 <img src="./doc/asset/picture_3.png" alt="Picture 1" width="" height="">
 </div>
 
-# News
+# 💥News
 - **`2025/2/20`**: Model can be accessed.
 - **`2025/2/20`**: Inference code is released.
 - **`2025/2/20`**: Our [**PixelPonder paper**](https://arxiv.org/) is available.
 
 
-# Installation Guide
+# 🛠️Installation Guide
 1. Clone our repo:
 ```bash
 git clone https://github.com/chfyfr/PixelPonder.git
@@ -58,7 +55,7 @@ pip install torch==2.2.0 torchvision==0.17.0 torchaudio==2.2.0 --index-url https
 pip install -r requirements.txt
 ```
 
-# Inference
+# 🚀Inference
 We provide two types of inference scripts, including single-GPU inference and multi-GPU parallel inference.
 1. single-GPU inference:  
 In the case of offloading, we recommend a GPU memory capacity of 32GB. 
@@ -73,11 +70,11 @@ The data storage format can refer to the format in the **Training Dataset or Inf
 python batch_inference.py --canny --depth --hed --openpose --batch 8 --gpu 4 --datapath "path/to/your/data" --savepath "path/to/your/save/path"
 ```
 
-# Models
+# 🤖️Models
 You can download them on HuggingFace:
 - [pixelponder](https://huggingface.co/chfyfr/PixelPonder)
 
-# Training Dataset or Inference Dataset
+# 🧐Training Dataset or Inference Dataset
 Dataset has the following format for the training process:
 ```text
 ├── data/
