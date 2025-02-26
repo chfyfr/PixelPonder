@@ -7,24 +7,13 @@
 </div>
 
 <div align="center">
-<a href=''>
-  <img src='https://img.shields.io/badge/Project-Page-Green'>
-</a>
+<a href=''> <img src='https://img.shields.io/badge/Project-Page-Green'> </a> &ensp;
 
-[//]: # (<a href="">)
+[//]: # (<a href=""> <img src='https://img.shields.io/badge/Demo-Gradio-gold?style=flat&logo=Gradio&logoColor=red' alt='Demo'> </a> &ensp;)
 
-[//]: # (    <img src='https://img.shields.io/badge/Demo-Gradio-gold?style=flat&logo=Gradio&logoColor=red' alt='Demo'>)
+<a href=''> <img src='https://img.shields.io/badge/Paper-Arxiv-red'> </a> &ensp;
 
-[//]: # (</a>)
-<a href=''>
-  <img src='https://img.shields.io/badge/Paper-Arxiv-red'>
-</a>
-
-[//]: # (<a href="" style="margin: 0 2px;">)
-
-[//]: # (  <img src='https://img.shields.io/badge/Space-ZeroGPU-orange?style=flat&logo=Gradio&logoColor=red' alt='Demo'>)
-
-[//]: # (</a>)
+[//]: # (<a href="" style="margin: 0 2px;"> <img src='https://img.shields.io/badge/Space-ZeroGPU-orange?style=flat&logo=Gradio&logoColor=red' alt='Demo'> </a> &ensp;)
 </div>
 
 # 🧐Overview
