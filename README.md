@@ -1,19 +1,18 @@
-<p align="center" style="border-radius: 10px">
+<p align="center" style="border-radius: 50px">
     <img src="./doc/asset/logo.png" width="100" height="100" alt="Logo">
 </p>
-<div style="text-align: center;">  
 
 # PixelPonder:Dynamic Patch Adaptation for Enhanced Multi-Conditional Text-to-Image Generation
-</div>
+
+<div align="center">
+<a href=''> <img src='https://img.shields.io/badge/Project-Page-Green'> </a> 
 
 [//]: # (<a href=""> <img src='https://img.shields.io/badge/Demo-Gradio-gold?style=flat&logo=Gradio&logoColor=red' alt='Demo'> </a> &ensp;)
+
+<a href=''> <img src='https://img.shields.io/badge/Paper-Arxiv-red'> </a> 
+
 [//]: # (<a href="" style="margin: 0 2px;"> <img src='https://img.shields.io/badge/Space-ZeroGPU-orange?style=flat&logo=Gradio&logoColor=red' alt='Demo'> </a> &ensp;)
-
-<div style="display: flex; justify-content: center; align-items: center;">
-    <a href='' style="margin-right: 10px;"> <img src='https://img.shields.io/badge/Project-Page-Green'> </a> 
-    <a href=''> <img src='https://img.shields.io/badge/Paper-Arxiv-red'> </a> 
 </div>
-
 
 # 🧐Overview
 <div style="text-align: center;">
