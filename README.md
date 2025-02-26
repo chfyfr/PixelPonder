@@ -1,11 +1,12 @@
 <div style="display: flex; justify-content: center; margin-top: 50px;">
     <img src="./doc/asset/logo.png" width="100" height="100" alt="Logo">
 </div>
+<div style="text-align: center;">  
 
-# PixelPonder:Dynamic Patch Adaptation for Enhanced Multi-Conditional
-Text-to-Image Generation
+# PixelPonder:Dynamic Patch Adaptation for Enhanced Multi-Conditional Text-to-Image Generation
+</div>
 
-
+<div style="text-align: center;">  
 <a href=''>
   <img src='https://img.shields.io/badge/Project-Page-Green'>
 </a>
@@ -24,6 +25,7 @@ Text-to-Image Generation
 [//]: # (  <img src='https://img.shields.io/badge/Space-ZeroGPU-orange?style=flat&logo=Gradio&logoColor=red' alt='Demo'>)
 
 [//]: # (</a>)
+</div>
 
 # 🧐Overview
 <div style="text-align: center;">
