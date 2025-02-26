@@ -1,5 +1,8 @@
+<div style="display: flex; justify-content: center; margin-top: 50px;">
+    <img src="./doc/asset/logo.png" width="100" height="100" alt="Logo">
+</div>
 
-# <img src="./doc/asset/logo.png" width="25" height="25"> PixelPonder:Dynamic Patch Adaptation for Enhanced Multi-Conditional
+# PixelPonder:Dynamic Patch Adaptation for Enhanced Multi-Conditional
 Text-to-Image Generation
 
 
