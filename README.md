@@ -60,7 +60,10 @@ python batch_inference.py --canny --depth --hed --openpose --batch 8 --gpu 4 --d
 
 # 🤖️Models
 You can download them on HuggingFace:
-- [pixelponder](https://huggingface.co/chfyfr/PixelPonder)
+- [pixelponder](https://huggingface.co/chfyfr/PixelPonder): pixelponder-fp32.bin
+- [flux](https://huggingface.co/black-forest-labs/FLUX.1-dev): ae.safetensors, flux1-dev.safetensors, text_encoders
+- [clip](https://huggingface.co/openai/clip-vit-large-patch14): all
+
 
 # 🧐Training Dataset or Inference Dataset
 Dataset has the following format for the training process:
