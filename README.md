@@ -8,7 +8,6 @@
 [//]: # (<a href=""> <img src='https://img.shields.io/badge/Demo-Gradio-gold?style=flat&logo=Gradio&logoColor=red' alt='Demo'> </a> &ensp;)
 
 <a href=''> <img src='https://img.shields.io/badge/Project-Page-Green'> </a>
-
 <a href=''> <img src='https://img.shields.io/badge/Paper-Arxiv-red'> </a>
 
 # 🧐Overview
