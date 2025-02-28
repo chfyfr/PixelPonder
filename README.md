@@ -1,25 +1,27 @@
-<p align="center" style="border-radius: 50px">
+<div align="center">
+
+<p align="center" style="border-radius: 30px">
     <img src="./doc/asset/logo.png" width="100" height="100" alt="Logo">
 </p>
 
 # PixelPonder:Dynamic Patch Adaptation for Enhanced Multi-Conditional Text-to-Image Generation
 
-[//]: # (<a href="" style="margin: 0 2px;"> <img src='https://img.shields.io/badge/Space-ZeroGPU-orange?style=flat&logo=Gradio&logoColor=red' alt='Demo'> </a> &ensp;)
-[//]: # (<a href=""> <img src='https://img.shields.io/badge/Demo-Gradio-gold?style=flat&logo=Gradio&logoColor=red' alt='Demo'> </a> &ensp;)
+<a href=''><img src='https://img.shields.io/badge/Project-Page-Green'></a>
+[![arXiv](https://img.shields.io/badge/arXiv-2502.17363-b31b1b.svg)]()
+[![GitHub Stars](https://img.shields.io/github/stars/chfyfr/PixelPonder)](https://github.com/chfyfr/PixelPonder)
 
-<a href=''> <img src='https://img.shields.io/badge/Project-Page-Green'> </a>
-<a href=''> <img src='https://img.shields.io/badge/Paper-Arxiv-red'> </a>
-
-# 🧐Overview
-<div style="text-align: center;">
-<img src="./doc/asset/picture_3.png" alt="Picture 1" width="" height="">
 </div>
 
 # 💥News
-- **`2025/2/20`**: Model can be accessed.
-- **`2025/2/20`**: Inference code is released.
-- **`2025/2/20`**: Our [**PixelPonder paper**](https://arxiv.org/) is available.
+- **`2025/2/28`**: Model can be accessed.
+- **`2025/2/28`**: Inference code is released.
+- **`2025/2/28`**: Our [**PixelPonder paper**](https://arxiv.org/) is available.
 
+# 📖Pipeline
+<div style="text-align: center;">
+<img src="./doc/asset/fg3.jpg" alt="Picture 1" width="" height="">
+</div>
+We propose PixelPonder, a novel mechanism which can refine the combination of multi-visual conditions by transitioning from the image level to the patch level, thereby enabling finer-grained controllable generation.
 
 # 🛠️Installation Guide
 1. Clone our repo:
