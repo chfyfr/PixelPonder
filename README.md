@@ -16,7 +16,7 @@
 - **`2025/2/28`**: Model can be accessed.
 - **`2025/2/28`**: Inference code is released.
 - **`2025/2/28`**: Our [**PixelPonder paper**](https://arxiv.org/) is available.
-- 
+
 # 👨‍💻 ToDo
 - Release the training code
 
