@@ -69,31 +69,32 @@ You can download them on HuggingFace:
 - [flux](https://huggingface.co/black-forest-labs/FLUX.1-dev): ae.safetensors, flux1-dev.safetensors, text_encoders
 - [clip](https://huggingface.co/openai/clip-vit-large-patch14): all
 
+After downloading, please place the weight files in the ckpts folder.
 
 # 🧐Training Dataset or Inference Dataset
 Dataset has the following format for the training process:
 ```text
 ├── data/
 │    ├── images
-│          ├──image_000.png
-│          ├──image_001.png
-│          ├──...
+│    │     ├──image_000.png
+│    │     ├──image_001.png
+│    │     ├──...
 │    ├── canny
-│          ├──image_000.png
-│          ├──image_001.png
-│          ├──...
+│    │     ├──image_000.png
+│    │     ├──image_001.png
+│    │     ├──...
 │    ├── hed
-│          ├──image_000.png
-│          ├──image_001.png
-│          ├──...
+│    │     ├──image_000.png
+│    │     ├──image_001.png
+│    │     ├──...
 │    ├── depth
-│          ├──image_000.png
-│          ├──image_001.png
-│          ├──...
+│    │     ├──image_000.png
+│    │     ├──image_001.png
+│    │     ├──...
 │    ├── openpose
-│          ├──image_000.png
-│          ├──image_001.png
-│          ├──...
+│    │     ├──image_000.png
+│    │     ├──image_001.png
+│    │     ├──...
 │    ├── data.jsonl
 ```
 The format of JSONL is as follows:
