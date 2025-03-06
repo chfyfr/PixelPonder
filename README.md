@@ -18,7 +18,9 @@
 - **`2025/2/28`**: Our [**PixelPonder paper**](https://arxiv.org/) is available.
 
 # 👨‍💻 ToDo
-- Release the training code
+- ❎Release the training code
+- ✅Release the inference code
+- ✅Release the model
 
 # 📖Pipeline
 <div style="text-align: center;">
