@@ -16,9 +16,10 @@
 - **`2025/3/11`**: Model can be accessed.
 - **`2025/3/11`**: Inference code is released.
 - **`2025/3/11`**: Our [**PixelPonder paper**](https://arxiv.org/pdf/2503.06684) is available.
+- **`2025/6/4`**: Training code is released.
 
 # 👨‍💻 ToDo
-- [ ] Release the training code
+- [x] Release the training code
 - [x] Release the inference code
 - [x] Release the model
 
@@ -63,6 +64,33 @@ You can select the type of condition you want to input using the `--<condition>`
 The data storage format can refer to the format in the **Training Dataset or Inference Dataset**.
 ```bash
 python batch_inference.py --canny --depth --hed --openpose --batch 8 --gpu 4 --datapath "path/to/your/data" --savepath "path/to/your/save/path"
+```
+
+# 🚀Training
+## Accelerate Configuration Example:
+```yaml
+compute_environment: LOCAL_MACHINE
+debug: false
+distributed_type: MULTI_GPU
+downcast_bf16: 'no'
+enable_cpu_affinity: false
+gpu_ids: all
+machine_rank: 0
+main_training_function: main
+mixed_precision: bf16
+num_machines: 1
+num_processes: 8
+rdzv_backend: static
+same_network: true
+tpu_env: []
+tpu_use_cluster: false
+tpu_use_sudo: false
+use_cpu: false
+```
+
+According to the accelerate configuration, we recommend using GPU with more than 80GB of VRAM for training.
+```bash
+accelerate launch train.py
 ```
 
 # 🤖️Models
