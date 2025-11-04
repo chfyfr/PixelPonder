@@ -183,16 +183,6 @@ class PatchSelectNetwork(nn.Module):
         update_mask.scatter_(1, indices, True)
         return zero_mask, update_mask
 
-    def gumbel_softmax_sample(self, logits: Tensor, temperature: float = 1.0):
-        gumbel_noise = -torch.log(-torch.log(torch.rand_like(logits) + 1e-20) + 1e-20)
-        logits_with_noise = (logits + gumbel_noise) / temperature
-        return F.softmax(logits_with_noise, dim=-1)
-
-    def st_gumbel_topk(self, logits: Tensor, k: int, temperature: float = 0.1):
-        soft_selection = self.gumbel_softmax_sample(logits, temperature)  # (b, n)
-        _, indices = torch.topk(soft_selection, k, dim=-1)  # (b, k)
-        hard_selection = torch.zeros_like(logits).scatter_(1, indices, 1.0)  # (b, n)
-        return (hard_selection - soft_selection).detach() + soft_selection, soft_selection
 
     def combine_patchs(self, conds:dict, selected_patch:Tensor, txt:Tensor, pe:Tensor, vec:Tensor):
         '''
@@ -223,20 +213,25 @@ class PatchSelectNetwork(nn.Module):
             embed = patch_embed + attn_comb_patch.unsqueeze(-2)  # (b,n,pc)->(b,n,1,pc)->(b,n,3,pc)
             x = torch.sum(embed, dim=-1, keepdim=False)  # (b,n,3,pc)->(b,n,3)
             x = F.normalize(x, p=2, dim=-1)
-            logits = x.sum(dim=-1)  # (b, n): selection score per position
-            hard_mask, soft_mask = self.st_gumbel_topk(logits, self.select_num, temperature=0.1)
-            max_probs, all_indices = torch.max(softmax_result, dim=-1)
-            all_indices_expanded = all_indices.unsqueeze(-1).unsqueeze(-1).unsqueeze(-1).expand(
-                -1, -1, -1, -1, ori_patch_embed.shape[-1]
-            )
-            per_pos_selected = torch.gather(ori_patch_embed, -2, all_indices_expanded).squeeze(-2)  # (b, n, pc)
-            selected_patch = torch.einsum('bn,bnc->bc', soft_mask, per_pos_selected)  # (b, pc)
-            selected_patch = selected_patch.unsqueeze(1).expand(-1, self.patch_num, -1)  # (b, n, pc)
-            zero_mask, update_mask_bool = self.update_mask(zero_mask, soft_mask.detach())
+            softmax_result = F.softmax(x, dim=-1)  # (b,n,3)
+            softmax_result[~zero_mask] = 0.
+            #  Select the patches that were chosen in this step.
+            max_probs, all_indices = torch.max(softmax_result, dim=-1)  # max_probs:(b,n)
+            all_indices = all_indices.unsqueeze(-1).unsqueeze(-1).expand(-1,-1,-1,ori_patch_embed.shape[-1])
+            selected_patch = ori_patch_embed.gather(-2, all_indices).squeeze(-2)
+            #  Select the top num patches from the chosen patches.
+            _, top_n_indices = torch.topk(max_probs, self.select_num, dim=-1)  # (b, self.select_num)
+
+            #  zero_mask:(b,n)    update_mask_patch:(b,n)     update_mask_combined_patch:(b,n)
+            zero_mask, update_mask = self.update_mask(zero_mask, top_n_indices)
+
+            selected_patch[update_mask] += selected_patch[update_mask]
+
             for k, v in conds.items():
-                v_patch = self.image_into_patch(v, norm=False)
-                v_patch = v_patch * (1 - soft_mask.unsqueeze(-1))  # soft masking
-                conds[k] = self.patch_into_image(v_patch)
+                v = self.image_into_patch(v, norm=False)
+                v[update_mask] = 0
+                v = self.patch_into_image(v)
+                conds[k] = v
 
         return self.patch_into_image(selected_patch)
 
