@@ -18,6 +18,7 @@
 - **`2025/3/11`**: Inference code is released.
 - **`2025/3/11`**: Our [**PixelPonder paper**](https://arxiv.org/pdf/2503.06684) is available.
 - **`2025/6/4`**: Training code is released.
+- **`2026/9/25`**: PixelPonder was accepted by **NeurIPS 2026**.
 
 # 👨‍💻 ToDo
 - [x] Release the training code
