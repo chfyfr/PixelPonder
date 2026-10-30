@@ -10,7 +10,7 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2503.06684-b31b1b.svg)](https://arxiv.org/pdf/2503.06684)
 [![GitHub Stars](https://img.shields.io/github/stars/chfyfr/PixelPonder)](https://github.com/chfyfr/PixelPonder)
 
-<h3>🎉 Accepted by Neruips 2026(spotlight)</h3>
+<h3>🎉 Accepted by NeurIPS 2026(spotlight)</h3>
 </div>
 
 # 💥News
